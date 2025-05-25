@@ -1,0 +1,1564 @@
+Program-01
+Insert an element in the array at given index.
+public class InsertElementIntoArray {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter the size of Array");
+		int size=sc.nextInt();
+		int array[]=new int[size];
+		System.out.println("enter the "+size+" into the array");
+		for(int i=0;i<array.length;i++) {
+				System.out.print("element-"+i);
+				array[i]=sc.nextInt();
+			
+		}System.out.println("The elements in the array are:");
+		for(int i=0;i<array.length;i++) {
+			for(int j=0;j<array.length;j++) {
+			}System.out.println(" "+array[i]);
+		}System.out.println("enter the element to be inserted");
+		int num=sc.nextInt();
+		System.out.println("Enter the position where to insert the element");
+		int index=sc.nextInt();
+		int array2[]=new int[size+1];
+		for(int i=0;i<size+1;i++) {
+			if(i<index-1)
+				array2[i]=array[i];
+			else if(i==index-1)
+				array2[i]=num;
+			else
+				array2[i]=array[i-1];
+			}System.out.println("Elements in the array are:");
+			for(int i=0;i<=size;i++) {
+				System.out.println(array2[i]);
+		}sc.close();
+	}
+
+}
+
+......................................................
+Program-02
+Find maximum & minimum element from an array.
+package arraydec10;
+import java.util.*;
+public class MaxMinElement {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter the size of the array:");
+	int size=sc.nextInt();
+	int array[]=new int[size];
+	for(int i=0;i<array.length;i++) {
+		System.out.print("Element: "+i);
+		array[i]=sc.nextInt();
+	}sc.close();
+	Arrays.sort(array);
+	System.out.println("Array after sorting:"+Arrays.toString(array));
+	System.out.println("The maximum element in the array is:"+array[size-1]);
+	System.out.println("The minimum element element in the array:"+array[0]);
+}
+}
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''
+Program-03
+Sort the array element in ascending order.
+package arraydec10;
+
+public class arraysorting {
+	public static void main(String[] args) {
+		int array[]= {2,7,4,5,9};
+		for(int i=0;i<array.length;i++) {
+			int temp;
+			for(int j=0;j<array.length;j++) {
+				if(array[i]<array[j]) {
+					temp=array[i];
+					array[i]=array[j];
+					array[j]=temp;
+				}
+			}
+		}System.out.println("Sorted array is:");
+		for(int i=0;i<array.length;i++) {
+			System.out.println(array[i]);
+		}
+	}
+
+}
+
+........................................................
+Program-04
+Delete an array element from given index.
+package arraydec10;
+import java.util.*;
+public class DeleteElementInArray {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		int array[]= {10,20,30,40,50};
+		int newarray[]=new int[array.length-1];
+		Arrays.sort(array);
+		System.out.println("Enter the index to delete the number");
+		int index=sc.nextInt();
+		for(int i=0,k=0;i<array.length;i++) {
+			if(i==index) {
+				continue;
+				}
+			newarray[k++]=array[i];
+		}sc.close();
+		System.out.println("Array elements are:");
+			System.out.println(Arrays.toString(newarray));
+	}
+
+}
+
+........................................................
+Program-05
+Copy one array element into another array.
+package arraydec10;
+
+public class CopyingElements {
+public static void main(String[] args) {
+	int array[]= {12,23,34,45,56,687};
+	int newArray[]=new int[array.length];
+	System.out.println("The Elements in the old Array");
+	for(int i=0;i<array.length;i++) {
+		newArray[i]=array[i];
+		System.out.print(array[i]+" ");
+	}System.out.println("\nThe Elements in the new Array");
+	for(int i=0;i<newArray.length;i++) {
+		System.out.print(newArray[i]+" ");
+	}
+}
+}
+...........................................................
+Program-06
+Find even & odd element from an array and copy even element into even[] array and odd element into odd[] array.
+package arraydec10;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class EvenandOdd {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	int array[]= {10,23,34,59,100};
+	int evensize=0;
+	int oddsize=0;
+	for(int i=0;i<array.length;i++) {
+		if(array[i]%2==0) {
+			evensize++;
+		}else {
+			oddsize++;
+		}
+	}int evenarray[]=new int[evensize];
+	int oddarray[]=new int[oddsize];
+	int j=0,k=0;
+	for(int i=0;i<array.length;i++) {
+		if(array[i]%2==0) {
+			evenarray[j++]=array[i];
+		}else {
+			oddarray[k++]=array[i];
+		}
+	}sc.close();
+	System.out.println("Even array is");
+	System.out.println(Arrays.toString(evenarray));
+	System.out.println("Odd array is");
+	System.out.println(Arrays.toString(oddarray));
+}
+}
+.............................................................
+
+Program-07
+Merge two array.
+package arraydec10;
+
+public class mergingarray {
+	public static void main(String[] args) {
+		int array1[]= {20,30,45,2,3};
+		int array2[]= {30,2,4,6,3,2};
+		int array3[]=new int[array1.length+array2.length];
+		//copying first array
+		int k=0,temp=0;
+		for(int i=0;i<array1.length;i++) {
+			array3[k]=array1[i];
+			k++;
+			//System.out.print(array3[i]+" ");
+		}
+		for(int i=0;i<array2.length;i++) {
+			array3[k]=array2[i];
+			k++;
+		}
+		//printing third array
+		for(int i=0;i<array3.length;i++) {
+			System.out.print(array3[i]+" ");
+		}
+		for(int i=0;i<array3.length;i++) {
+			for(int j=i+1;j<array3.length;j++) {
+				if(array3[i]>array3[j]) {
+					temp=array3[i];
+					array3[i]=array3[j];
+					array3[j]=temp;
+					
+				}
+			}
+		}
+		System.out.println("the array after sorting");
+		for(int i=0;i<array3.length;i++) {
+			System.out.print(array3[i]+" ");
+		}
+		
+	}
+
+}
+
+...............................................................
+Program-08
+Searching an array element from an array and show its index.
+package arraydec10;
+import java.util.*;
+public class SearchingElement {
+public static int search() {
+	try (Scanner sc = new Scanner(System.in)) {
+		System.out.println("Enter the Size of array");
+		int size=sc.nextInt();
+		int array[]=new int[size];
+		System.out.println("Enter the "+size+" Elements");
+		for(int i=0;i<array.length;i++) {
+			System.out.print("element-"+i);
+			array[i]=sc.nextInt();
+		}System.out.println("The Elements in the array are");
+		for(int i=0;i<array.length;i++) {
+			System.out.print(array[i]+" ");
+		}
+		System.out.println("\nEnter the Element to search");
+		int search=sc.nextInt();
+		for(int i=0;i<array.length;i++) {
+			if(array[i]==search) {
+				return i;
+			}
+		}
+	}
+		return -1;
+}
+public static void main(String[] args) {
+	System.out.println("The index of the Element: "+search());
+}
+}
+...............................................................
+Program-09
+Remove duplicate element from an array.
+package arraydec10;
+
+import java.util.Arrays;
+public class DeletingRepeatedElements {
+public static void main(String[] args) {
+	int array[]= {1,5,8,5,7,3,2,4,1,6,2};
+	Arrays.sort(array);
+	for(int i=0;i<array.length;i++) {
+		int j;
+		for(j=0;j<array.length;j++)
+		if(array[i]==array[j]) {
+			break;
+		}if(i==j) {
+			System.out.println(array[i]);
+		}
+	}
+}
+}
+.................................................................
+Program-10
+Find sum of even number and sum of odd number saperately and count how many even and odd number is present in array
+package arraydec10;
+
+public class sumofevenandoddnumbers {
+public static void main(String[] args) {
+	int array[]= {1,2,3,1,2,4,5,7,8,4,6};
+	int odd=0,even=0,oddcount=0,evencount=0;
+	for(int i=0;i<array.length;i++) {
+		if(array[i]%2==0) {
+			evencount++;
+			even+=array[i];
+			
+		}else {
+			oddcount++;
+			odd+=array[i];
+		}
+	}System.out.println("odd numbers sum in the array="+odd);
+	System.out.println("even numbers sum in the array="+even);
+	System.out.println("The numbers of even numbers in the array :"+evencount);
+	System.out.println("The numbers of odd numbers in the array :"+oddcount);
+	
+}
+}
+...........................................................................................................
+Program-11
+.Retrieve all array element and adding 2 with all array element.
+
+example-
+input->1 2 3 4 5
+output->3 4 5 6 7
+package arraydec10;
+public class adding2withallarrayelement {
+public static void main(String[] args) {
+	int array[]= {1,2,3,4,5,6,7};
+	for(int i=0;i<array.length;i++) {
+		int sum=2;
+		sum+=array[i];
+		System.out.print(sum+" ");
+	}
+	
+}
+}
+.......................................................................................................
+Program-12
+Find Sum of unique number from the array.
+
+package arraydec10;
+public class UniqueElement {
+public static void main(String[] args) {
+	int array[]= {1,1,2,4,5,1,3,4,6,8,4};
+	int sum=0;
+	System.out.println("The unique elements in the array");
+	for(int i=0;i<array.length;i++) {
+		int count=0;
+		for(int j=0;j<array.length;j++) {
+			if(array[i]==array[j]) {
+				count++;
+			}
+		}if(count==1) {
+			System.out.print(array[i]+" ");
+			sum+=array[i];
+		}
+	}System.out.println("\nSum of the unique elements :"+sum);
+}
+}
+
+....................................................................................
+Program-13
+Find Largest and smallest element from an array.
+package arraydec10;
+import java.util.*;
+public class MaxMinElement {
+public static void main(String[] args) {
+	Scanner sc=new Scanner(System.in);
+	System.out.println("enter the size of the array:");
+	int size=sc.nextInt();
+	int array[]=new int[size];
+	for(int i=0;i<array.length;i++) {
+		System.out.print("Element: "+i);
+		array[i]=sc.nextInt();
+	}sc.close();
+	Arrays.sort(array);
+	System.out.println("Array after sorting:"+Arrays.toString(array));
+	System.out.println("The maximum element in the array is:"+array[size-1]);
+	System.out.println("The minimum element element in the array:"+array[0]);
+}
+}
+
+.......................................................................................
+Program-14
+Reverse an array element.
+package arraydec10;
+public class Reversethearray {
+public static void main(String[] args) {
+	int array[]= {1,2,3,4,5,6};
+	System.out.println("Original array");
+	for(int i=0;i<array.length;i++) {
+		System.out.print(array[i]+" ");
+}System.out.println("\nreverse array");
+	for (int j = array.length-1; j >= 0; j--) {  
+        System.out.print(array[j] + " ");  
+}
+}
+}
+
+ 
+......................................................................................
+Program-15.
+Implement a Program to Calculate the Sum of the Array Elements using Pointer 
+The program uses the pointer to traverse the array and adds up the element values there.
+
+sample Input
+Enter the size of array A 
+3
+Enter 3 Elements  
+11
+22
+33
+Sample Output
+Sum of all elements in array = 66
+
+Case1:
+Enter the size of array 
+1
+Enter 1 Elements  
+10
+Sum of all elements in array = 10
+
+Case2:
+Enter the size of array 
+0
+Enter 0 Elements  
+Sum of all elements in array = 0
+
+
+package arraydec10;
+import java.util.*;
+public class Sumofelementsinthearray {
+public static void main(String[] args) {
+	try (Scanner sc = new Scanner(System.in)) {
+		int sum=0;
+		System.out.println("Enter the size of the array");
+		int size=sc.nextInt();
+		System.out.println("enter the "+size+" elements into the array");
+		int array[]=new int[size];
+		for(int i=0;i<array.length;i++) {
+			System.out.print("Element-"+i);
+			array[i]=sc.nextInt();	
+		}
+		//System.out.println("Array elements are");
+		for(int i=0;i<array.length;i++) {
+			System.out.print(array[i]+" ");
+			sum+=array[i];
+		}System.out.println("\nArray elements Sum is :"+sum);
+	}
+	
+}
+}
+................................................................................
+
+Program-16.
+
+Implement a Program to Print all the Repeated Numbers with Frequency in an Array 
+Sample Input
+Enter size of an array
+5
+Enter 5 elements
+5
+8
+9
+8
+5
+Sample Output
+Elements 	Frequency 
+5 	 	2 
+8 		 2 
+Case1:
+Enter the size of the array
+1
+Enter 1 array elements 
+5
+Elements	Frequency
+
+Case2:
+Enter the size of the array
+2
+Enter 2 array elements 
+10
+10
+Elements	Frequency
+  10		2
+
+
+package arraydec10;
+import java.util.*;
+public class countArrayElements {
+	public static void main(String[] args) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("enter the size of the array");
+		int size=sc.nextInt();
+		System.out.println("enter the elements into the array");
+		int array[]=new int[size];
+		Arrays.sort(array);
+		for(int i=0;i<array.length;i++) {
+			System.out.print("element"+i+"-");
+			array[i]=sc.nextInt();
+		}
+		for(int i=0;i<array.length;i++) {
+			int count=0;
+			for(int j=0;j<array.length;j++) {
+				if(array[i]==array[j]) {
+					count++;
+				}
+			}
+			i=i+count-1;//importent line
+			System.out.println(array[i]+" Frequency is "+ count);
+			}sc.close();
+		}
+				
+	}
+
+............................................................................
+
+Program-17
+
+Write a Program to calculate Addition of All Elements of the Array
+Sample Input
+Enter no of elements : 3
+Enter the values : 11 22 33
+Sample Output
+a[0]=11
+a[1]=22
+a[2]=33
+Sum=66
+Case1:
+Enter no of elements :
+1
+Enter the values :
+10
+Result
+a[0]=10
+Sum=10
+
+Case2:
+Enter no of elements :
+2
+Enter the values :
+10
+20
+Result
+a[0]=10
+a[1]=20
+Sum=30
+
+Case3:
+Enter no of elements :
+2
+Enter the values :
+20
+10
+Result
+a[0]=20
+a[1]=10
+Sum=30
+
+
+package arraydec10;
+import java.util.*;
+public class Sumofelementsinthearray {
+public static void main(String[] args) {
+	try (Scanner sc = new Scanner(System.in)) {
+		int sum=0;
+		System.out.println("Enter the size of the array");
+		int size=sc.nextInt();
+		System.out.println("enter the "+size+" elements into the array");
+		int array[]=new int[size];
+		for(int i=0;i<array.length;i++) {
+			System.out.print("array["+i+"]=");
+			array[i]=sc.nextInt();	
+		}
+		for(int i=0;i<array.length;i++) {
+			System.out.print(array[i]+" ");
+			sum+=array[i];
+		}System.out.println("\nArray elements Sum is :"+sum);
+	}
+	
+}
+}
+................................................................................
+
+Program-18
+
+
+EXPRESSION EVALUATION
+Expression Evaluation
+
+In Our project, 7th module is to evaluate the expression x = y + y^2+........+y^n. Raju allotted this function to Rajini. Collect and display the values returned by the called function. Test your program and report the results obtained.
+Help Rajini to write a program to evaluate the expression?
+
+Get the value of y and n from the user as input
+
+Function Specification:
+int calculate(int,int);
+where the first argument corresponds to the value of y and second corresponds to n.
+
+Note:
+
+Please use the same prompt statements given in the sample input and output
+
+Input Format:
+The first line of the input contains an integer y.
+The second line of the input contains an integer n (n>=0).
+
+Output Format:
+Output displays an integer.
+Note: If n = 0, print 1.
+Refer sample input and output for formatting details.
+[All text in bold corresponds to Input and the rest output ]
+
+Sample Input and Output:
+1. 
+Enter the value of y
+2
+Enter the value of n
+3
+The result is
+14
+
+2. 
+Enter the value of y 
+10
+Enter the value of n 
+20
+The result is 2147483647
+
+Solution->
+
+#include<stdio.h>
+#include<math.h>
+int calculate(int,int);
+int main()
+{
+    int x,n;
+    int r;
+    printf("Enter the value of x\n");
+    scanf("%d",&x);
+    printf("Enter the value of n\n");
+    scanf("%d",&n);
+    r=calculate(x,n);
+    printf("The result is\n%d",r);
+    
+    return 0;
+}
+
+int calculate(int x,int n)
+{
+    int i,s=0;
+    if(n==0)
+    return 1;
+    for(i=1;i<=n;i++)
+    {
+        s+=pow(x,i);
+    }
+    return s;
+} 
+
+...........................................................................................
+
+Program-19
+
+INVERSION COUNT
+Write a program to display the inversion count in different languages.
+Inversion Count for an array shows – how far (or near) the array is from being sorted. If array is already sorted then inversion count is 0. If array is sorted in reverse order that inversion count is the most.
+Example:
+The sequence 2, 4, 1, 3, 5 has three inversions (2, 1), (4, 1), (4, 3).
+
+Input and Output Format:
+The first line of the input consists of an integer, n that corresponds to the variety of elements within the input array.
+The next 'n' lines in the input correspond to the elements in the array.
+Output is an integer.
+Sample Input1:
+5
+2
+4
+1
+3
+5
+Sample Output1:
+3
+
+1.
+Enter number of elements
+1
+Enter 1 of elements
+1
+Inversions 0
+
+2.
+Enter number of elements
+5
+Enter 5 of elements
+3
+1
+5
+10
+15
+Inversions 1
+
+Solution->
+
+#include<stdio.h>
+#include<stdlib.h>
+int inv(int n,int *x);
+int main()
+{
+    int x[20],i,cnt,n;
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&x[i]);
+    }
+    cnt=inv(n,x);
+    printf("%d",cnt);
+    
+    return 0;
+}
+
+int inv(int n,int *x)
+{
+    int i,j,cnt=0,t;
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(x[i]>x[j])
+            {
+                t=x[i];
+                x[i]=x[j];
+                x[j]=t;
+                cnt++;
+            }
+        }
+    }
+    return cnt;
+}
+
+
+
+...................................................................
+
+Program-20
+
+NO. OF DISTINCT ELEMENTS IN AN UNSORTED ARRAY
+No. of Distinct Elements in an unsorted array
+
+ 
+
+Write a program to find the number of distinct elements in a unsorted array. [without using sorting the array]
+
+ Input Format:
+
+Input consists of x+1 integers.
+The first integer corresponds to x, the number of elements in the array.
+The next n integers correspond to the elements in the array. Assume that the maximum value of x is 16.
+
+ 
+Output Format:
+
+Output consists of a single number which corresponds to the number of distinct elements in the array.
+
+ 
+Sample Input:
+
+5
+
+3
+
+2
+
+3
+
+780
+
+90
+
+ 
+
+Sample Output:
+
+4
+
+1.
+Enter number of elements
+1
+Enter 1 elements
+1
+No. of Distinct Elements are 1
+
+2.
+Enter number of elements
+5
+Enter 5 elements
+3
+2
+3
+780
+90
+No. of Distinct Elements are 4
+
+3.
+Enter number of elements
+5
+Enter 5 elements
+5
+5
+5
+5
+5
+No. of Distinct Elements are 1
+
+Solution->
+
+#include<stdio.h>
+int main()
+{
+    int n,a[20],i,j,c=1;
+    
+    scanf("%d",&n);
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    
+    
+    for(i=1;i<n;i++){
+    for(j=0;j<i;j++)
+    if(a[i]==a[j])
+      break;
+     if(i==j)
+     c++;
+    }
+   printf("%d",c); 
+    
+}
+
+........................................................................
+Program-21
+
+Write a program to Calculate Sum of all integers of an Array using Arguments 
+Function specification: int arraysum(int *ptr, int num)
+Note:
+Refer function specifications for the function details.
+int arraysum(int*,int); // for c and c++
+int arraysum(int[],int) // for java.
+
+Input format:
+The first line of the input corresponds to the number.
+The next number inputs correspond to the sum of all integers
+Output format:
+The output is an calculate sum of all elements in a array.
+Constraint:
+This Program calculate sum of all integers of an array using arguments. The program calls a function/method to add the addition and passes the array argument.
+
+Sample Input:
+5
+200 400 600 800 1000
+Sample Output:
+3000
+
+Case1:
+Enter number of elements
+2
+Enter 2 numbers: 
+10
+20
+Sum of all array elements = 30
+
+Case2:
+Enter number of elements
+1
+Enter 1 numbers: 
+10
+Sum of all array elements = 10
+.......................................................................
+
+Program-22
+
+Implement a Program to Find the Biggest Number in an Array of Numbers using Recursion 
+Ravi wants to pick highest price in the vegetable market. So, we help to ravi which vegetable is height price.
+Constraint
+Program prints the largest number in an unsorted array of elements using recursion. The array used here is of type integer.
+
+Sample Input
+Enter size of the list: 
+5
+Enter 5 elements
+5
+12
+16
+10
+15
+
+Sample Output
+Largest element of the array is
+16
+
+Case1:
+Enter size of the list: 
+5
+Enter 5 elements
+10
+20
+30
+40
+50
+Largest element of the array is
+50
+
+Solution.........
+#include<stdio.h>
+#define MAX 100
+int largestElement(int []);  
+int size;
+int main()
+{
+    int arr[MAX], largest, i;
+    printf("Enter size of the list: \n");
+    scanf("%d", &size);
+  if(size<0) 
+   {
+printf("Please Enter Positive Number ");
+return 0;
+    }
+    printf("Enter %d elements\n", size);
+    for(i = 0; i < size; i++)
+    {
+        scanf("%d", &arr[i]);
+    }  
+    largest = largestElement(arr);  
+    printf("\nLargest element of the array is %d\n", largest);
+    return 0;
+}
+int largestElement(int a[])
+{
+    static int i = 0, largest =- 9999;  
+    if(i < size)   
+    {
+        if(largest < a[i])
+        largest = a[i];
+        i++;    
+        largestElement(a);   // recursive call
+    }
+    return largest;
+}
+
+...............................................................................
+
+Program-23
+
+Implement a Program to Find the Largest Two Numbers in a given Array 
+Constraint
+First it accepts an array, then compares the elements and finds which is the largest two element in a given array. Array must be unsorted.
+
+Sample Input
+Enter size of an array
+5
+Enter 5 integer numbers 
+55
+85
+55
+15
+25
+
+Sample Output
+Input integers are 
+   55   85   55   15   25
+
+85 is the first largest 
+55 is the second largest 
+Average of 85 and 55 = 70 
+
+Case1:
+Enter size of an array
+5
+Enter 5 integer numbers 
+25
+35
+45
+55
+65
+Input integers are 
+ 25
+ 35
+ 45
+ 55
+ 65
+
+65 is the first largest
+55 is the second largest
+Average of 65 and 55 = 60
+.................................................................
+
+Program-24
+
+Implement a Program to Find the Second Largest & Smallest Elements in an Array 
+Constraints:
+
+Sorts the array in an descending order. 
+Then it finds the second largest and smallest element in an array and also find the average of an array element. 
+Later it checks if the resultant average number is present in a given array. If found, display appropriate message.
+Array size must be grater then 2.
+
+Sample Input
+Enter the value of N
+5
+Enter the numbers 
+25
+36
+32
+35
+55
+
+Sample Output
+The numbers arranged in descending order are given below
+55
+36
+35
+32
+25
+
+The 2nd largest number is 36
+
+The 2nd smallest number is 32
+
+The average of 36 and 32 is 34 is not in the array
+
+Case1:
+Enter the value of N
+5
+Enter the numbers
+1
+2
+3
+4
+5
+The numbers arranged in descending order are given below 
+5
+4
+3
+2
+1
+The 2nd largest number is 4
+The 2nd smallest number is 2
+The average of 4 and 2 in array is 1 
+
+Case2:
+Enter the value of N
+3
+Enter the numbers
+5
+6
+8
+The numbers arranged in descending order are given below 
+8
+6
+5
+The 2nd largest number is 6
+The 2nd smallest number is 6
+The average of 6 and 6 in array is 1 
+...............................................................................
+
+Program-25
+
+Write a program to Calculate the median of the array's elements.
+
+Median is the middle value in a sorted array so to find the median value of a series of integers, sort them in increasing order.
+If there are even number of elements in the array, median is the mean of the 2 middle values .
+If there are odd number of elements in the array, median is the middle number. 
+
+Median with Constraint
+1.  All the numbers are whole numbers.
+2. Median is not a whole number.
+
+Formula for, If there are even number of elements in the array is 
+Median = (1/2)(n+1)th value
+
+Input Format:
+
+Input consists of n+1 integers where n corresponds to the number of elements in the array.
+
+The first integer corresponds to n and the next n integers correspond to the elements in the array. Assume that the maximum number of elements in the array is 20.
+
+
+Output Format:
+Output consists of a double value which corresponds to the median of the array. It is printed upto 2 digits of precision.
+
+Refer sample input and output for formatting specifications.
+
+[All text in bold corresponds to input and the rest corresponds to output.]
+
+ 
+
+Sample Input and Output :
+
+Enter the number of elements in the array
+
+5
+
+Enter the elements in the array
+
+2
+
+4
+
+1
+
+3
+
+5
+
+The median of the array is 3.00
+
+Case 1:
+Enter the number of elements in the array
+5
+Enter the elements in the array
+10
+20
+30
+40
+50
+The median of the array is 30.00
+
+Solution->
+
+#include<stdio.h>
+
+int main()
+{
+    int i,j,n,t,a[20];
+    double m;
+    printf("Enter the number of elements in the array\n");
+    scanf("%d",&n);
+    if(n<0)
+    {
+        
+	printf("Number of Elements should be Positive");
+   }
+   else{
+    printf("Enter the elements in the array\n");
+    for(i=0;i<n;i++)
+    {
+        scanf("%d",&a[i]);
+    }
+    
+    for(i=0;i<n;i++)
+    {
+        for(j=i+1;j<n;j++)
+        {
+            if(a[i]>a[j])
+            {
+               t=a[i];
+               a[i]=a[j];
+               a[j]=t;
+            }
+        }
+    }
+     if(n%2!=0)
+     m= (double)a[n/2];
+     else
+     m=(double)(a[(n-1)/2]+a[n/2])/2.0;
+    printf("The median of the array is %.2lf",m);
+    }
+    return 0;
+}
+
+...................................................................
+Program-26
+Implement a Program to Input an Array, Store the Squares of these Elements in an Array & Print it 
+Constraints:
+Inputs array & stores the of these elements in an array & print them
+Program to input array & stores the of these elements in an array & print them.
+print_square(int x[ ]) Function required with no return argument
+Sample Input
+Enter size of row array
+2
+Enter size of column
+2
+Enter the elements of matrix:
+10
+20
+30
+40
+Sample Output
+Squares of these Elements
+100	400	
+900	1600	
+
+Case1:
+Enter size of row array
+1
+Enter size of column
+1
+Enter the elements of matrix:
+10
+Squares of these Elements
+100	
+Case2:
+Enter size of row array
+2
+Enter size of column
+2
+Enter the elements of matrix:
+55
+25
+36
+86
+Squares of these Elements
+3025	625	
+1296	7396	
+Case3:
+Enter size of row array
+2
+Enter size of column
+3
+Enter the elements of matrix:
+14
+15
+16
+17
+18
+19
+Squares of these Elements
+196	225	256	
+289	324	361
+Case4:
+Enter size of row array
+3
+Enter size of column
+2
+Enter the elements of matrix:
+5
+9
+8
+7
+6
+2
+Squares of these Elements
+25	81	
+64	49	
+36	4
+
+
+Solution->
+
+#include <stdio.h>
+void print_square(int [ ] );
+int row;
+int col;
+int main (void)
+{
+    printf("Enter size of row array\n");
+    scanf("%d",&row);
+    printf("Enter size of column\n");
+    scanf("%d",&col);
+    if(col<=0 || row<=0)
+    {
+        printf("Please Enter correct input");
+        return 0;
+    }
+    printf("Enter the elements of matrix:\n");
+    int num[row][col];
+    for(int i=0;i<row;i++)
+    {
+        for(int j=0;j<col;j++)
+        {
+            scanf("%d",&num[i][j]);
+        }
+    }
+    int i;
+    printf("Squares of these Elements\n");
+    for (i = 0; i < row; i++)
+        print_square(num[i]);
+}
+void print_square(int x[ ])
+{
+    int j;
+    for (j = 0; j < col; j++)
+        printf ("%d\t", x[j] * x[j]);
+    printf("\n");
+}
+
+
+
+.................................................................................
+
+Program-27
+
+MAXIMUM DIFFERENCE
+Given an array of integers, find out the maximum difference among any two integers such that larger integer appears after the smaller ineteger in an array.
+Examples:
+If array is [1,5,56,89,25,41,33,55] then returned value should be 88 (Diff between 89 and 1).
+If array is [10,30,50,70,110,90] then returned value should be 100 (Diff between 10 and 110)
+
+Input and Output Format:
+The first line of the input consists of an integer, n that corresponds to the number of elements in the input array.
+The next 'n' lines in the input correspond to the elements in the array.
+Output is an integer.
+
+Sample Input1:
+5
+1
+2
+90
+10
+110
+Sample Output1:
+109
+
+1.
+Enter number of elements
+7
+Enter 7 elements
+2
+3
+10
+6
+4
+8
+1
+Difference between maximum and minimum value is 8
+
+2.
+Enter number of elements
+6
+Enter 6 elements
+10
+20
+30
+40
+50
+6
+Difference between maximum and minimum value is 40
+
+3.
+Enter number of elements
+5
+Enter 5 elements
+10
+20
+30
+40
+50
+Difference between maximum and minimum value is 40
+
+
+Program-28
+
+Implement a Program to Find the Sum of Contiguous Subarray within a 1 – D Array of Numbers which has the Largest Sum 
+Sample Input
+Enter array size
+8
+Enter 8 elements
+10
+-2
+15
+9
+-8
+12
+20
+-5
+Sample Output
+The max sum is 56 
+The begin and End are 0 & 6
+Case1:
+Enter array size
+5
+Enter 5 elements
+10
+20
+30
+40
+50
+The maximum sum is 150
+The begin and End are 0 & 4
+
+Case2:
+Enter array size
+5
+Enter 5 elements
+1
+2
+3
+4
+5
+The maximum sum is 15
+The begin and End are 0 & 4
+
+Program-29
+
+FUNCTIONS - ARRAY TYPE
+Functions – Array Type
+
+Write a program to find the type(Even or Odd or Mixed) of the array using functions in c and c++ and methods in java.
+
+In an array all the elements are even so, the array type is treated as 'Even'.
+In an array all the elements are odd so, the array type is treated as 'Odd'.
+In an array Some elements are Even and Some elements are odd so, the array type is treated as 'Mixed'.
+ 
+
+Note:
+Refer function specifications for the function details.
+
+int findType(int n, int *); // only for C and C++
+int findType(int n, int[]); // java
+The first argument corresponds to the number of elements in the array.
+
+The second argument corresponds to the pointer to an array in C and C++ but in java the second argument corresponds to array.
+
+The return value of the function (or) method should be 1 if the array is Even.
+
+The return value of the function (or) method should be 2 if the array is Odd.
+
+The return value of the function (or) method should be 3 if the array is Mixed.
+
+ 
+
+Input Format:
+
+Input consists of n+1 integers where n corresponds to the number of elements in the array.
+
+The first integer corresponds to n and the next n integers correspond to the elements in the array.
+
+Assume that the maximum number of elements in the array is 20.
+
+
+Output Format:
+Refer sample input and output for formatting specifications.
+
+[All text in bold corresponds to input and the rest corresponds to output.]
+
+ 
+
+Sample Input and Output 1 :
+
+Enter the number of elements in the array
+
+5
+
+Enter the elements in the array
+
+2
+
+4
+
+1
+
+3
+
+5
+
+The array is Mixed
+
+ 
+
+Sample Input and Output 2 :
+
+Enter the number of elements in the array
+
+5
+
+Enter the elements in the array
+
+9
+
+7
+
+1
+
+3
+
+5
+
+The array is Odd
+
+ 
+
+Sample Input and Output 3 :
+
+Enter the number of elements in the array
+
+5
+
+Enter the elements in the array
+
+2
+
+4
+
+6
+
+44
+
+50
+
+The array is Even
+
+Case1:
+Enter the number of elements in the array
+5
+Enter the elements in the array
+1
+2
+3
+4
+5
+The array is Mixed
+
+Case2:
+Enter the number of elements in the array
+5
+Enter the elements in the array
+1
+7
+9
+5
+3
+The array is Odd
+
+
+Program-30
+
+FRUIT YIELDING TREE
+Fruit yielding tree
+Raju owned a farm which had ‘n’ fruit trees. He sold a tree from the farm which yielded the utmost number of fruits. Now, he wanted to seek out the tree that yielded the second maximum number of fruits. Write a program to assist Raju find the second largest fruit yielding tree without sorting.
+
+Function Specification: int secondLargest(int *, int);
+
+Input format:
+
+The first line of the input corresponds to the n.
+
+The next n inputs correspond to the number of fruits yielded by each tree.(Assume number of fruits yielded by each tree is unique)
+
+ 
+Output format:
+
+The output is an integer which corresponds to the second largest fruit yielding tree from the farm.
+
+Sample Input:
+7
+7
+5
+8
+6
+9
+4
+3
+Sample Output:
+8
+
+Program-31
+
+Write a program to Calculate Sum of all integers of an Array using Arguments 
+Function specification: int arraysum(int *ptr, int num)
+Note:
+Refer function specifications for the function details.
+int arraysum(int*,int); // for c and c++
+int arraysum(int[],int) // for java.
+
+Input format:
+The first line of the input corresponds to the number.
+The next number inputs correspond to the sum of all integers
+Output format:
+The output is an calculate sum of all elements in a array.
+Constraint:
+This Program calculate sum of all integers of an array using arguments. The program calls a function/method to add the addition and passes the array argument.
+
+Sample Input:
+5
+200 400 600 800 1000
+Sample Output:
+3000
+
+Case1:
+Enter number of elements
+2
+Enter 2 numbers: 
+10
+20
+Sum of all array elements = 30
+
+Case2:
+Enter number of elements
+1
+Enter 1 numbers: 
+10
+Sum of all array elements = 10
